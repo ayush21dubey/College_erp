@@ -1,0 +1,247 @@
+/* ---
+Aurora Theme for PeopleSoft Pages
+Description: A modern, dark-mode compatible theme inspired by the creative login/registration pages.
+--- */
+
+/* 1. Global Styles & Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover-color: #4338ca;
+    
+    /* Light Mode Variables */
+    --bg-light: #f3f4f6;
+    --card-bg-light: rgba(255, 255, 255, 0.75);
+    --text-primary-light: #111827;
+    --text-secondary-light: #4b5563;
+    --border-light: #e5e7eb;
+    --input-bg-light: #e5e7eb;
+    --table-header-bg-light: #f9fafb;
+    --table-row-odd-light: #ffffff;
+    --table-row-even-light: #f9fafb;
+    --table-row-hover-light: #f0f9ff;
+    
+    /* Dark Mode Variables */
+    --bg-dark: #111827;
+    --card-bg-dark: rgba(31, 41, 55, 0.7);
+    --text-primary-dark: #f9fafb;
+    --text-secondary-dark: #9ca3af;
+    --border-dark: #374151;
+    --input-bg-dark: #374151;
+    --table-header-bg-dark: #1f2937;
+    --table-row-odd-dark: #1f2937;
+    --table-row-even-dark: #111827;
+    --table-row-hover-dark: #0c4a6e;
+}
+
+body, html {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-primary-light);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dark mode styles */
+body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-primary-dark);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #9ca3af; border-radius: 4px; }
+body.dark ::-webkit-scrollbar-thumb { background: #4b5563; }
+::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+body.dark ::-webkit-scrollbar-thumb:hover { background: #374151; }
+
+
+/* 2. Page Structure & Main Container */
+.PSPAGECONTAINER {
+    /* Use backdrop-filter for the frosted glass effect if a background image/canvas is present */
+    background-color: var(--card-bg-light);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-light);
+    border-radius: 1rem; /* 16px */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    max-width: 1200px;
+    margin: 2rem auto; /* Center the container */
+    padding: 2rem;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+body.dark .PSPAGECONTAINER {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-dark);
+}
+
+/* Hide legacy page bars and toolbars for a cleaner look */
+#win0divPAGEBAR, #win0divPSTOOLBAR, #win0divPSPANELTABS {
+    display: none;
+}
+
+
+/* 3. Typography & Text Elements */
+.PAPAGETITLE {
+    font-size: 2.25rem; /* 36px */
+    font-weight: 700;
+    color: var(--text-primary-light);
+    margin-bottom: 1.5rem;
+}
+
+body.dark .PAPAGETITLE {
+    color: var(--text-primary-dark);
+}
+
+.PSEDITBOXLABEL {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    color: var(--text-secondary-light);
+    margin-bottom: 0.25rem;
+}
+
+body.dark .PSEDITBOXLABEL {
+    color: var(--text-secondary-dark);
+}
+
+.PSEDITBOX_DISPONLY {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    background-color: var(--input-bg-light);
+    border-radius: 0.5rem; /* 8px */
+    font-size: 0.875rem;
+    min-width: 100px;
+    transition: background-color 0.5s ease;
+}
+
+body.dark .PSEDITBOX_DISPONLY {
+    background-color: var(--input-bg-dark);
+    color: var(--text-primary-dark);
+}
+
+/* 4. Table and Grid Styling */
+.PSLEVEL1GRIDWBO {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    border-radius: 0.75rem; /* 12px */
+    overflow: hidden; /* Important for border-radius on tables */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Grid Header */
+.PSLEVEL1GRIDLABEL {
+    background-color: transparent !important;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+}
+
+.PSLEVEL1GRIDCOLUMNHDR {
+    background-color: var(--table-header-bg-light);
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem; /* 12px */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.PSLEVEL1GRIDCOLUMNHDR a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body.dark .PSLEVEL1GRIDCOLUMNHDR {
+    background-color: var(--table-header-bg-dark);
+    border-bottom-color: var(--border-dark);
+}
+
+/* Grid Rows */
+.PSLEVEL1GRIDODDROW, .PSLEVEL1GRIDEVENROW {
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid var(--border-light);
+}
+.PSLEVEL1GRIDODDROW { background-color: var(--table-row-odd-light); }
+.PSLEVEL1GRIDEVENROW { background-color: var(--table-row-even-light); }
+
+/* Remove last border */
+tr[id^="trSTDNT_ENRL$0_row"]:last-child .PSLEVEL1GRIDODDROW,
+tr[id^="trSTDNT_ENRL$0_row"]:last-child .PSLEVEL1GRIDEVENROW {
+    border-bottom: none;
+}
+
+/* Hover effect */
+tr[id^="trSTDNT_ENRL$0_row"]:hover .PSLEVEL1GRIDODDROW,
+tr[id^="trSTDNT_ENRL$0_row"]:hover .PSLEVEL1GRIDEVENROW {
+    background-color: var(--table-row-hover-light) !important; /* Use important to override inline styles */
+}
+
+
+body.dark .PSLEVEL1GRIDODDROW, body.dark .PSLEVEL1GRIDEVENROW { border-color: var(--border-dark); }
+body.dark .PSLEVEL1GRIDODDROW { background-color: var(--table-row-odd-dark); }
+body.dark .PSLEVEL1GRIDEVENROW { background-color: var(--table-row-even-dark); }
+body.dark tr[id^="trSTDNT_ENRL$0_row"]:hover .PSLEVEL1GRIDODDROW,
+body.dark tr[id^="trSTDNT_ENRL$0_row"]:hover .PSLEVEL1GRIDEVENROW {
+    background-color: var(--table-row-hover-dark) !important;
+}
+
+
+/* Grid Cells */
+.PSLEVEL1GRIDODDROW td, .PSLEVEL1GRIDEVENROW td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+}
+td.PSLEVEL1GRIDODDROW, td.PSLEVEL1GRIDEVENROW {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+}
+
+
+/* 5. Links and Interactive Elements */
+a, .PSHYPERLINK, a.PSHYPERLINK {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+a:hover, .PSHYPERLINK:hover, a.PSHYPERLINK:hover {
+    color: var(--primary-hover-color);
+    text-decoration: underline;
+}
+
+/* Remove legacy image backgrounds from buttons */
+input.PSPUSHBUTTONTBRETURN, input.PSPUSHBUTTONTBPREVINLIST,
+input.PSPUSHBUTTONTBNEXTINLIST, input.PSPUSHBUTTONTBSENDNOTIFY,
+input.PSPUSHBUTTONTBUPDATEMODE, input.PSPUSHBUTTONTBUPDATEALLMODE {
+    background-image: none !important;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+input.PSPUSHBUTTONTBRETURN:hover {
+    background-color: var(--primary-hover-color);
+    transform: scale(1.05);
+}
+
+/* Disabled buttons */
+input:disabled {
+    background-color: #9ca3af !important;
+    cursor: not-allowed;
+}
+
+body.dark input:disabled {
+     background-color: #4b5563 !important;
+}

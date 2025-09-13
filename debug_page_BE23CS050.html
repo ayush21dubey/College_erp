@@ -1,0 +1,643 @@
+<html dir="ltr" lang="en"><!-- Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved. --><head><script language="JavaScript">
+var  totalTimeoutMilliseconds = 900000; 
+var  warningTimeoutMilliseconds = 780000; 
+var timeOutURL = 'https://campus.srmcem.ac.in/psp/ps/EMPLOYEE/HRMS/?cmd=expire';
+var timeoutWarningPageURL = 'https://campus.srmcem.ac.in/psc/ps/EMPLOYEE/HRMS/s/WEBLIB_TIMEOUT.PT_TIMEOUTWARNING.FieldFormula.IScript_TIMEOUTWARNING';
+</script><link id="PSSTYLEREQ_4_css" rel="stylesheet" type="text/css" href="/cs/ps/cache/PSSTYLEREQ_4.css"><link id="PSSTYLEDEF_TANGERINE_MY_4_css" rel="stylesheet" type="text/css" href="/cs/ps/cache/PSSTYLEDEF_TANGERINE_MY_4.css"><script language="JavaScript">
+var winParent = null;
+var modalID = null;
+var modalZoomName = null;
+var baseKey_win0 = "\x1b\r\n";
+var altKey_win0 = "\xdc05678\xbc\xbe\xbf\xde\xbc\xbe\xde1";
+var ctrlKey_win0 = "JK";
+var saveWarningKeys_win0 = "";
+var bAccessibility_win0 =false;
+var bDoModal_win0 = false;
+var bJSModal_win0 = false;
+var bPromptPage_win0 = false;
+var bSearchDialog_win0 =true;
+var bTabOverTB_win0 = false;
+var bTabOverPg_win0 = false;
+var bTabOverNonPS_win0 = false;
+var strCurrUrl='https://campus.srmcem.ac.in/psp/ps/EMPLOYEE/HRMS/c/MANAGE_ACADEMIC_RECORDS.STDNT_ATTEND_TERM.GBL';
+var bIncInNavigation='T';
+var szCrefID='HC_STDNT_ATTENDANCE_GBL';
+var szCrefReged='T';
+var szCrefVisible='T';
+var szCrefLabel='Attendance Roster By Student';
+var szCalendarType = 'G';
+var bMenuSrchPage = false;
+var bWSRP=0;var szMenuSrchText = "-999999-";
+var modalCloseUrl = '/cs/ps/cache/PT_PORTAL_IC_CLOSE_1.gif';
+var modalCloseAlt = 'Close';
+var modalResizeUrl= '/cs/ps/cache/PT_RESIZE_IMG_1.gif';
+var modalResizeAlt = 'Drag to resize';
+var modalMoveAlt = 'Drag to move';
+</script><script language="JavaScript">
+var PFieldList_win0 = [['CLASS_ATND_SRCH_EMPLID',1],
+['CLASS_ATND_SRCH_INSTITUTION',1],
+['CLASS_ATND_SRCH_STRM',1],
+['CLASS_ATND_SRCH_LAST_NAME_SRCH',1],
+['CLASS_ATND_SRCH_FIRST_NAME_SRCH',1]];
+</script><script language="JavaScript">
+var EFieldList_win0 = [];
+</script><script language="JavaScript" type="text/javascript" src="/cs/ps/cache/PT_COMMON_MIN_320.js">
+</script><script language="JavaScript" type="text/javascript" src="/cs/ps/cache/PT_AJAX_NET_MIN_320.js">
+</script><script language="JavaScript" type="text/javascript" src="/cs/ps/cache/PT_SAVEWARNINGSCRIPT_MIN_320.js">
+</script><script language="JavaScript" type="text/javascript" src="/cs/ps/cache/PT_PAGESCRIPT_win0_MIN_320.js">
+</script><script language="JavaScript" type="text/javascript" src="/cs/ps/cache/PT_EDITSCRIPT_win0_MIN_320.js">
+</script><script language="JavaScript" type="text/javascript" src="/cs/ps/cache/PT_POPUPSCRIPT_win0_MIN_320.js">
+</script><script language="JavaScript" type="text/javascript" src="/cs/ps/cache/PT_GRIDSCRIPT_win0_MIN_320.js">
+</script><script language="JavaScript" type="text/javascript" src="/cs/ps/cache/PT_TYPEAHEAD_win0_MIN_320.js">
+</script><script language="JavaScript">
+var nResubmit=0;
+var nLastAction=0;
+var loader=null;
+if (typeof(bCleanHtml) == 'undefined')
+	var bCleanHtml = false;
+setupTimeout2();
+var postUrl_win0='https://campus.srmcem.ac.in/psc/ps/EMPLOYEE/HRMS/c/MANAGE_ACADEMIC_RECORDS.STDNT_ATTEND_TERM.GBL';
+function aAction_win0(form, name, params, bAjax, bPrompt)
+{
+setupTimeout2();
+if ((name != '#ICSave'))
+processing_win0(1,3000);
+aAction0_win0(form, name, params, bAjax, bPrompt);
+}
+function submitAction_win0(form, name)
+{
+setupTimeout2();
+if (!ptCommonObj2.isICQryDownload(form, name))
+ { processing_win0(1,3000); }
+preSubmitProcess_win0(form, name);
+var spellcheckpos = name.indexOf('$spellcheck');
+if ((spellcheckpos != -1) && (name.indexOf('#KEYA5') != -1))
+	form.ICAction.value = name.substring(0,spellcheckpos);
+else 
+	form.ICAction.value=name;
+var actionName = form.ICAction.value;
+form.ICXPos.value=ptCommonObj2.getScrollX();
+form.ICYPos.value=ptCommonObj2.getScrollY();
+if (!ptCommonObj2.isAJAXReq(form, name) && !ptCommonObj2.isPromptReq(name)){
+if (nLastAction == 1 && nResubmit > 0) return;
+form.ICResubmit.value=nResubmit;
+form.submit();
+if (!ptCommonObj2.isICQryDownload(form, name))
+	nResubmit++;
+}
+else if (ptCommonObj2.isPromptReq(name))
+	pAction_win0(form, name, arguments[2]);
+else
+	aAction_win0(form, actionName);}
+</script><script language="javascript">
+var pt_calHeadstyle=" class='PTCALHEAD' "
+var pt_calWeekHeadstyle=" class='PTCALWEEKHEAD' "
+function dateitemrefs()
+{
+this.pt_dateheader = "/cs/ps/cache/PT_PORTAL_IC_CLOSE_1.gif";
+this.pt_datering = "/cs/ps/cache/PT_CURRENT_DATE_1.gif";
+this.pt_datesel = "/cs/ps/cache/PT_SELECTED_DATE_1.gif";
+this.pt_nextmonth = "/cs/ps/cache/PT_RIGHT_SCROLL_1.gif";
+this.pt_prevmonth= "/cs/ps/cache/PT_LEFT_SCROLL_1.gif";
+this.pt_daystitle_hijri = "/cs/ps/cache/PT_DATE_TITLE_S6_1.GIF";
+this.pt_daystitle_thai = "/cs/ps/cache/PT_DATE_TITLE_S0_1.GIF";
+this.pt_daystitle_s0 = "/cs/ps/cache/PT_DATE_TITLE_S0_1.GIF";
+this.pt_daystitle_m1 = "/cs/ps/cache/PT_DATE_TITLE_M1_1.GIF";
+this.pt_daystitle_t2 = "/cs/ps/cache/PT_DATE_TITLE_T2_1.GIF";
+this.pt_daystitle_w3 = "/cs/ps/cache/PT_DATE_TITLE_W3_1.GIF";
+this.pt_daystitle_t4 = "/cs/ps/cache/PT_DATE_TITLE_T4_1.GIF";
+this.pt_daystitle_f5 = "/cs/ps/cache/PT_DATE_TITLE_F5_1.gif";
+this.pt_daystitle_s6 = "/cs/ps/cache/PT_DATE_TITLE_S6_1.GIF";
+}
+ 
+function LoadCalendar()
+{
+var dateitems = new dateitemrefs();
+loadImages(dateitems);
+}
+function DatePrompt_win0(dtfield,promptfield,yrfmt,bsubmit)
+{
+setupTimeout2();
+openDate_win0(dtfield, promptfield, "MDY/"+yrfmt,bsubmit,"G",0);
+}
+</script><script language="JavaScript" ptdefer="defer">
+if (typeof ptStyleSheet == "undefined") {
+ptStyleSheet = 'PSSTYLEDEF_TANGERINE_MY';
+}
+function onLoadExt_win0() {
+modalZoomName = null;
+var oWin=window;
+var oDoc=document;
+ptTAObj_win0.init(oWin,oDoc,oDoc.win0,'/cs/ps/cache/PT_SRT2UP_SEL_1.gif','/cs/ps/cache/PT_SRT2DN_SEL_1.gif','/cs/ps/cache/PT_PORTAL_IC_CLOSE_1.gif',500);
+var pt_pageinfo = document.getElementById('pt_pageinfo_win0');
+if (pt_pageinfo) {
+pt_pageinfo.setAttribute('Page', '(search)');
+pt_pageinfo.setAttribute('Component', 'STDNT_ATTEND_TERM');
+pt_pageinfo.setAttribute('Menu', 'MANAGE_ACADEMIC_RECORDS');
+}
+
+ g_bAccessibilityMode=false; 
+UpdateBreadCrumbs();
+runOnloadScript_win0(false,false,false,false,false,false,false,false,true,false,false,false,false,true,true,1,'ICFocus',false,false);
+if (typeof(HelppopupObj_win0) != 'undefined' && HelppopupObj_win0 != null)
+ HelppopupObj_win0.StopPopup();
+
+doModalOnLoad_win0(false, false);
+ResetGlyph_win0();
+self.scroll(0,0);
+objToBeFocus = null;
+if (typeof oWin == 'undefined') setEventHandlers_win0('ICFirstAnchor_win0', 'ICLastAnchor_win0', false);
+ else
+ oWin.setEventHandlers_win0('ICFirstAnchor_win0', 'ICLastAnchor_win0', false);
+setFocus_win0('SEARCH_RESULT1',-1);
+processing_win0(0,3000);
+ptConsole2.enable();
+
+GenerateABN();
+GenerateFakeBC();
+bcUpdateForPTF();if (typeof(myAppsWindowOpenJS) != 'undefined' && myAppsWindowOpenJS != null && myAppsWindowOpenJS != '')
+ {
+try {eval(myAppsWindowOpenJS);} catch(e) {}
+  myAppsWindowOpenJS=null;
+}
+ResetGlyph_win0();setPageletInfoInCtxmenu_win0('false');}
+try{ptEvent.load(onLoadExt_win0);}catch(e){}
+</script><script id="PT_TYPEAHEAD_win0_MIN_320_js" type="text/javascript" src="/cs/ps/cache/PT_TYPEAHEAD_win0_MIN_320.js"></script></head><body tabindex="-1" class="PSSRCHPAGE">
+<div id="pt_pageinfo_win0" page="STDNT_ATTDNCE1" component="STDNT_ATTEND_TERM" menu="MANAGE_ACADEMIC_RECORDS"></div>
+<div id="pt_modalMaskCover">&nbsp;</div><div id="pt_modalMask">&nbsp;</div><div id="pt_console"><input type="button" id="COPYCONSOLE" value="Copy" onclick="ptConsole2.copy();" alt="copy to clipboard" title="copy to clipboard"><input type="button" id="CLEARCONSOLE" onclick="ptConsole2.clear();" value="Clear" alt="clear console" title="clear console"><input type="button" id="HIDECONSOLE" onclick="ptConsole2.hide();" value="Hide" alt="hide console" title="hide console"><input type="button" id="CLOSECONSOLE" onclick="ptConsole2.deactive();" value="Close" alt="close console" title="close console"></div><div id="pt_typeahead0" style="display: none;"><span id="pt_typeahead" class="spanTextDropdown" style="display: none;">&nbsp;</span></div><div id="WAIT_win0" style="display: none; position: absolute; right: 0px; visibility: hidden;"><img id="processing" align="left" src="/cs/ps/cache/PT_PROCESSING_1.gif" alt="Processing... please wait" title="Processing... please wait"></div>
+ <div id="SAVED_win0" style="display: none; position: absolute; right: 0px; visibility: hidden;"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><img src="/cs/ps/cache/PTPORTAL_POPBOX_LEFT_1.gif" width="7" height="39" border="0" alt=""></td><td id="saveWait_win0" width="35" align="center" valign="middle" background="/cs/ps/cache/PTPORTAL_POPBOX_CENTER_1.gif"><img src="/cs/ps/cache/PT_LOADER_1.gif" width="24" height="24" alt=""></td><td nowrap="nowrap" background="/cs/ps/cache/PTPORTAL_POPBOX_CENTER_1.gif"><span id="ptStatusText_win0" dir="ltr" class="PSPROCESSING">&nbsp;</span></td><td><img src="/cs/ps/cache/PTPORTAL_POPBOX_RIGHT_1.gif" width="6" height="39" alt=""></td><td>&nbsp;</td></tr></tbody></table></div><a name="ICFirstAnchor_win0"></a>
+<form name="win0" method="post" action="https://campus.srmcem.ac.in/psc/ps/EMPLOYEE/HRMS/c/MANAGE_ACADEMIC_RECORDS.STDNT_ATTEND_TERM.GBL" autocomplete="off" class="PSForm">
+<div id="win0divPSHIDDENFIELDS" style="display:none"><input type="hidden" name="ICType" id="ICType" value="Panel">
+<input type="hidden" name="ICElementNum" id="ICElementNum" value="0">
+<input type="hidden" name="ICStateNum" id="ICStateNum" value="2">
+<input type="hidden" name="ICAction" id="ICAction" value="None">
+<input type="hidden" name="ICXPos" id="ICXPos" value="0">
+<input type="hidden" name="ICYPos" id="ICYPos" value="0">
+<input type="hidden" name="ResponsetoDiffFrame" id="ResponsetoDiffFrame" value="-1">
+<input type="hidden" name="TargetFrameName" id="TargetFrameName" value="None">
+<input type="hidden" name="FacetPath" id="FacetPath" value="None">
+<input type="hidden" name="ICFocus" id="ICFocus" value="">
+<input type="hidden" name="ICSaveWarningFilter" id="ICSaveWarningFilter" value="0">
+<input type="hidden" name="ICChanged" id="ICChanged" value="-1">
+<input type="hidden" name="ICResubmit" id="ICResubmit" value="0">
+<input type="hidden" name="ICSID" id="ICSID" value="nKzbwK07QfR0LUNqI6ncOq5OX0mSfXedXVffpFIsFhc=">
+<input type="hidden" name="ICActionPrompt" id="ICActionPrompt" value="false">
+<input type="hidden" name="ICTypeAheadID" id="ICTypeAheadID" value="">
+<input type="hidden" name="ICFind" id="ICFind" value="">
+<input type="hidden" name="ICAddCount" id="ICAddCount" value="">
+<input type="hidden" name="ICAPPCLSDATA" id="ICAPPCLSDATA" value="">
+</div><div id="win0divPAGEBAR"><div><table cols="3" width="100%" cellpadding="0" cellspacing="0" hspace="0" vspace="0">
+<tbody><tr>
+<td width="80%"></td><td width="10%" nowrap="nowrap" align="right"></td>
+<td width="10%" nowrap="nowrap" align="right"><a id="NEWWIN" name="NEWWIN" dir="ltr" href="javascript:processing_win0(0,3000); void window.open(DoPortalUrl('https://campus.srmcem.ac.in/psp/ps_newwin/EMPLOYEE/HRMS/c/MANAGE_ACADEMIC_RECORDS.STDNT_ATTEND_TERM.GBL'),'','');" psaccesskey="9" tabindex="1" class="PSHYPERLINK">New Window</a>&nbsp;|&nbsp;<a href="javascript:submitAction_win0(document.win0,'#ICCustPage');" id="CUSTPAGE" tabindex="2" dir="ltr" class="PSHYPERLINK">Personalize Page</a></td></tr>
+</tbody></table>
+</div></div><script type="text/javascript">
+if (typeof window.top.ptrc != "undefined" && window.top.ptrc != null){window.top.ptrc.SetRcEnabled(false);}</script>
+<div id="win0divPSPANELTABS"></div><div id="win0divPAGECONTAINER"><table class="PSPAGECONTAINER"><tbody><tr><td>
+<div id="win0divPSPAGECONTAINER"><table border="0" id="ACE_width" cellpadding="0" cellspacing="0" class="PSPAGECONTAINER" cols="14" width="823">
+<tbody><tr>
+<td width="4" height="14"></td>
+<td width="11"></td>
+<td width="1"></td>
+<td width="81"></td>
+<td width="108"></td>
+<td width="327"></td>
+<td width="76"></td>
+<td width="28"></td>
+<td width="103"></td>
+<td width="4"></td>
+<td width="2"></td>
+<td width="29"></td>
+<td width="38"></td>
+<td width="11"></td>
+</tr>
+<tr>
+<td height="34" colspan="2"></td>
+<td colspan="12" valign="top" align="left">
+<div id="win0divDERIVED_SR_DESCR100_5"><span class="PAPAGETITLE" id="DERIVED_SR_DESCR100_5">Attendance Roster by Student</span>
+</div></td>
+</tr>
+<tr>
+<td height="1" colspan="3"></td>
+<td rowspan="2" valign="top" align="left">
+<div id="win0divCLASS_ATND_SRCH_EMPLIDlbl"><span class="PSEDITBOXLABEL">ID:</span> </div></td>
+</tr>
+<tr>
+<td height="19" colspan="3"></td>
+<td rowspan="2" valign="top" align="left">
+<div id="win0divCLASS_ATND_SRCH_EMPLID"><span class="PSEDITBOX_DISPONLY" id="CLASS_ATND_SRCH_EMPLID">00000021416</span>
+</div></td>
+<td colspan="9" rowspan="2" valign="top" align="left">
+<div id="win0divPERSONAL_DTSAVW_NAME"><span class="PSEDITBOX_DISPONLY" id="PERSONAL_DTSAVW_NAME">CHAURASIYA,APURV</span>
+</div></td>
+</tr>
+<tr>
+<td height="1" colspan="3"></td>
+<td rowspan="4" valign="top" align="left">
+<div id="win0divCLASS_ATND_SRCH_ACAD_CAREERlbl"><span class="PSEDITBOXLABEL">Career:</span> </div></td>
+</tr>
+<tr>
+<td height="3" colspan="3"></td>
+<td rowspan="4" valign="top" align="left">
+<div id="win0divCLASS_ATND_SRCH_ACAD_CAREER"><span class="PSEDITBOX_DISPONLY" id="CLASS_ATND_SRCH_ACAD_CAREER">UG</span>
+</div></td>
+<td rowspan="4" valign="top" align="left">
+<div id="win0divACAD_CAR_TBL_DESCR"><span class="PSEDITBOX_DISPONLY" id="ACAD_CAR_TBL_DESCR">Undergraduate</span>
+</div></td>
+</tr>
+<tr>
+<td height="1" colspan="3"></td>
+<td colspan="5" rowspan="3" valign="top" align="left">
+<div id="win0divSRM_LEAVE_WRK_AMOUNT_DIFFlbl"><span class="PSEDITBOXLABEL">Medical and Other Attendance in %:</span> </div></td>
+</tr>
+<tr>
+<td height="15" colspan="3"></td>
+<td rowspan="4" valign="top" align="right">
+<div id="win0divSRM_LEAVE_WRK_AMOUNT_DIFF"><span class="PSEDITBOX_DISPONLY" id="SRM_LEAVE_WRK_AMOUNT_DIFF">&nbsp;</span>
+</div></td>
+</tr>
+<tr>
+<td height="1" colspan="3"></td>
+<td rowspan="4" valign="top" align="left">
+<div id="win0divCLASS_ATND_SRCH_INSTITUTIONlbl"><span class="PSEDITBOXLABEL">Institution:</span> </div></td>
+</tr>
+<tr>
+<td height="3" colspan="3"></td>
+<td rowspan="4" valign="top" align="left">
+<div id="win0divCLASS_ATND_SRCH_INSTITUTION"><span class="PSEDITBOX_DISPONLY" id="CLASS_ATND_SRCH_INSTITUTION">SRM02</span>
+</div></td>
+<td colspan="2" rowspan="4" valign="top" align="left">
+<div id="win0divINSTITUTION_TBL_DESCR"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION_TBL_DESCR">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+</tr>
+<tr>
+<td height="1" colspan="3"></td>
+<td colspan="3" rowspan="3" valign="top" align="left">
+<div id="win0divSRM_LEAVE_WRK_AMOUNT_DUElbl"><span class="PSEDITBOXLABEL">Total Attendance in %:</span> </div></td>
+</tr>
+<tr>
+<td height="15" colspan="3"></td>
+<td colspan="2" rowspan="4" valign="top" align="right">
+<div id="win0divSRM_LEAVE_WRK_AMOUNT_DUE"><span class="PSEDITBOX_DISPONLY" id="SRM_LEAVE_WRK_AMOUNT_DUE">78.26</span>
+</div></td>
+</tr>
+<tr>
+<td height="1" colspan="3"></td>
+<td rowspan="4" valign="top" align="left">
+<div id="win0divCLASS_ATND_SRCH_STRMlbl"><span class="PSEDITBOXLABEL">Term:</span> </div></td>
+</tr>
+<tr>
+<td height="3" colspan="3"></td>
+<td rowspan="3" valign="top" align="left">
+<div id="win0divCLASS_ATND_SRCH_STRM"><span class="PSEDITBOX_DISPONLY" id="CLASS_ATND_SRCH_STRM">2501</span>
+</div></td>
+<td colspan="3" rowspan="3" valign="top" align="left">
+<div id="win0divTERM_VAL_TBL_DESCR"><span class="PSEDITBOX_DISPONLY" id="TERM_VAL_TBL_DESCR">Semester 1 year 2501 UG/PG</span>
+</div></td>
+</tr>
+<tr>
+<td height="1" colspan="3"></td>
+<td rowspan="2" valign="top" align="left">
+<div id="win0divSRM_CLAS_PER_DR_TOTAL_PERCENTlbl"><span class="PSEDITBOXLABEL">Attendance in %:</span> </div></td>
+</tr>
+<tr>
+<td height="35" colspan="3"></td>
+<td colspan="3" valign="top" align="right">
+<div id="win0divSRM_CLAS_PER_DR_TOTAL_PERCENT"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_TOTAL_PERCENT">78.26</span>
+</div></td>
+</tr>
+<tr>
+<td height="291"></td>
+<td colspan="12" valign="top" align="left">
+<div id="win0divDERIVED_CS_DERIVED_REQ2"><table border="0" id="ACE_DERIVED_CS_DERIVED_REQ2" cellpadding="0" cellspacing="0" cols="2" width="807" class="PSLEVEL3GRIDROW" style="border-style:none">
+<tbody><tr>
+<td width="4" height="0"></td>
+<td width="803"></td>
+</tr>
+<tr>
+<td height="289"></td>
+<td valign="top" align="left">
+<div id="win0divSTDNT_ENRL$0"><table border="1" cellspacing="0" class="PSLEVEL1GRIDWBO" id="STDNT_ENRL$scroll$0" dir="ltr" cols="6" width="808" cellpadding="2">
+<tbody><tr><td class="PSLEVEL1GRIDLABEL" colspan="6">
+<div id="win0divSTDNT_ENRLGP$0"><table border="0" cellpadding="0" cellspacing="0" cols="2" class="PSLEVEL1GRIDLABEL" style="border-style:none" width="800">
+<tbody><tr>
+<td border="0" align="left" width="22%" class="PSLEVEL1GRIDLABEL">Enrolled Classes</td>
+<td align="right" width="78%" class="PSLEVEL1GRIDLABEL"><a name="STDNT_ENRL$hpers$0" id="STDNT_ENRL$hpers$0" tabindex="16" href="javascript:submitAction_win0(document.win0,'STDNT_ENRL$hpers$0');" class="PSLEVEL1GRIDLABEL">Personalize</a>&nbsp;|&nbsp;<a name="STDNT_ENRL$hfind$0" id="STDNT_ENRL$hfind$0" tabindex="17" onclick="return FindString_win0(document.win0.ICFind);" href="javascript:submitAction_win0(document.win0,'STDNT_ENRL$hfind$0');" class="PSLEVEL1GRIDLABEL">Find</a>&nbsp;|&nbsp;<a name="STDNT_ENRL$hmodal$0" id="STDNT_ENRL$hmodal$0" tabindex="18" href="javascript:mAction_win0(document.win0,'STDNT_ENRL$hmodal$0', null, null, 'Zoom - Enrolled Classes', true);"><img src="/cs/ps/cache/PT_MODAL_CNTRL_1.gif" name="STDNT_ENRL$pt_modal_cntrl$img$0" alt="Zoom - Enrolled Classes" title="Zoom - Enrolled Classes" border="0" align="top"></a>&nbsp;|&nbsp;<a class="PSHYPERLINK" name="STDNT_ENRL$hexcel$0" id="STDNT_ENRL$hexcel$0" tabindex="18" href="javascript:submitAction_win0(document.win0,'STDNT_ENRL$hexcel$0');"><img src="/cs/ps/cache/PT_DOWNLOAD_1.gif" name="STDNT_ENRL$hexcel$img$0" alt="Download" title="Download" border="0"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="PSHEADERHYPERLINKD">First</span>&nbsp;<img src="/cs/ps/cache/PT_PREVIOUSROW_D_1.gif" name="STDNT_ENRL$hup$img$0" alt="Show previous row (inactive button) (Alt+,)" title="Show previous row (inactive button) (Alt+,)" border="0">&nbsp;<span class="PSGRIDCOUNTER">1-12 of 12</span>&nbsp;<img src="/cs/ps/cache/PT_NEXTROW_D_1.gif" name="STDNT_ENRL$hdown$img$0" alt="Show next row (inactive button) (Alt+.)" title="Show next row (inactive button) (Alt+.)" border="0">&nbsp;<span class="PSHEADERHYPERLINKD">Last</span>&nbsp;</td>
+</tr>
+</tbody></table>
+</div></td></tr>
+<tr>
+<th scope="col" abbr="Class Number" width="66" align="left" class="PSLEVEL1GRIDCOLUMNHDR"><a name="STDNT_ENRL$srt2$0" id="STDNT_ENRL$srt2$0" tabindex="30" class="PSLEVEL1GRIDCOLUMNHDR" href="javascript:submitAction_win0(document.win0,'STDNT_ENRL$srt2$0');" title="Click column heading to sort ascending">Class Number</a></th>
+<th scope="col" abbr="Class Title" width="182" align="left" class="PSLEVEL1GRIDCOLUMNHDR"><a name="STDNT_ENRL$srt3$0" id="STDNT_ENRL$srt3$0" tabindex="31" class="PSLEVEL1GRIDCOLUMNHDR" href="javascript:submitAction_win0(document.win0,'STDNT_ENRL$srt3$0');" title="Click column heading to sort ascending">Class Title</a></th>
+<th scope="col" abbr="Subject / Catalog#" width="102" align="left" class="PSLEVEL1GRIDCOLUMNHDR"><a name="STDNT_ENRL$srt4$0" id="STDNT_ENRL$srt4$0" tabindex="32" class="PSLEVEL1GRIDCOLUMNHDR" href="javascript:submitAction_win0(document.win0,'STDNT_ENRL$srt4$0');" title="Click column heading to sort ascending">Subject / Catalog#</a></th>
+<th scope="col" abbr="Academic Career" width="118" align="left" class="PSLEVEL1GRIDCOLUMNHDR"><a name="STDNT_ENRL$srt6$0" id="STDNT_ENRL$srt6$0" tabindex="34" class="PSLEVEL1GRIDCOLUMNHDR" href="javascript:submitAction_win0(document.win0,'STDNT_ENRL$srt6$0');" title="Click column heading to sort ascending">Academic Career</a></th>
+<th scope="col" abbr="Academic Institution" width="171" align="left" class="PSLEVEL1GRIDCOLUMNHDR"><a name="STDNT_ENRL$srt8$0" id="STDNT_ENRL$srt8$0" tabindex="36" class="PSLEVEL1GRIDCOLUMNHDR" href="javascript:submitAction_win0(document.win0,'STDNT_ENRL$srt8$0');" title="Click column heading to sort ascending">Academic Institution</a></th>
+<th scope="col" abbr="Attend Percentage" width="63" align="left" class="PSLEVEL1GRIDCOLUMNHDR"><a name="STDNT_ENRL$srt10$0" id="STDNT_ENRL$srt10$0" tabindex="38" class="PSLEVEL1GRIDCOLUMNHDR" href="javascript:submitAction_win0(document.win0,'STDNT_ENRL$srt10$0');" title="Click column heading to sort ascending">Attend Percentage</a></th>
+</tr>
+<tr id="trSTDNT_ENRL$0_row1" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row1');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row1');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row1');">
+<td align="left" height="14" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(212, 219, 217);">
+<div id="win0divSELECT$0"><span id="SELECT$span$0" class="PSHYPERLINK" title="View Roster"><a name="SELECT$0" id="SELECT$0" ptlinktgt="pt_peoplecode" tabindex="40" href="javascript:submitAction_win0(document.win0,'SELECT$0');" class="PSHYPERLINK">1611</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(212, 219, 217);">
+<div id="win0divDESCR1$0"><span class="PSEDITBOX_DISPONLY" id="DESCR1$0">Data Analytics</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(212, 219, 217);">
+<div id="win0divSUBJECT$0"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$0">CS BCS-052</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(212, 219, 217);">
+<div id="win0divCAREER$0"><span class="PSEDITBOX_DISPONLY" id="CAREER$0">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(212, 219, 217);">
+<div id="win0divINSTITUTION$0"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$0">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(212, 219, 217);">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$0"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$0">100.00</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row2" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row2');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row2');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row2');">
+<td align="left" height="14" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSELECT$1"><span id="SELECT$span$1" class="PSHYPERLINK" title="View Roster"><a name="SELECT$1" id="SELECT$1" ptlinktgt="pt_peoplecode" tabindex="46" href="javascript:submitAction_win0(document.win0,'SELECT$1');" class="PSHYPERLINK">1640</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divDESCR1$1"><span class="PSEDITBOX_DISPONLY" id="DESCR1$1">Machine Learning Techniques</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSUBJECT$1"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$1">CS BCS-055</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divCAREER$1"><span class="PSEDITBOX_DISPONLY" id="CAREER$1">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divINSTITUTION$1"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$1">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$1"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$1">55.56</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row3" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row3');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row3');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row3');">
+<td align="left" height="14" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSELECT$2"><span id="SELECT$span$2" class="PSHYPERLINK" title="View Roster"><a name="SELECT$2" id="SELECT$2" ptlinktgt="pt_peoplecode" tabindex="52" href="javascript:submitAction_win0(document.win0,'SELECT$2');" class="PSHYPERLINK">1494</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divDESCR1$2"><span class="PSEDITBOX_DISPONLY" id="DESCR1$2">Database Management System &nbsp;</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSUBJECT$2"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$2">CS BCS-501</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divCAREER$2"><span class="PSEDITBOX_DISPONLY" id="CAREER$2">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divINSTITUTION$2"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$2">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$2"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$2">85.71</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row4" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row4');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row4');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row4');">
+<td align="left" height="14" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSELECT$3"><span id="SELECT$span$3" class="PSHYPERLINK" title="View Roster"><a name="SELECT$3" id="SELECT$3" ptlinktgt="pt_peoplecode" tabindex="58" href="javascript:submitAction_win0(document.win0,'SELECT$3');" class="PSHYPERLINK">1496</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divDESCR1$3"><span class="PSEDITBOX_DISPONLY" id="DESCR1$3">Database Management System &nbsp;</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSUBJECT$3"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$3">CS BCS-501</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divCAREER$3"><span class="PSEDITBOX_DISPONLY" id="CAREER$3">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divINSTITUTION$3"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$3">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$3"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$3">100.00</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row5" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row5');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row5');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row5');">
+<td align="left" height="14" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSELECT$4"><span id="SELECT$span$4" class="PSHYPERLINK" title="View Roster"><a name="SELECT$4" id="SELECT$4" ptlinktgt="pt_peoplecode" tabindex="64" href="javascript:submitAction_win0(document.win0,'SELECT$4');" class="PSHYPERLINK">1519</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divDESCR1$4"><span class="PSEDITBOX_DISPONLY" id="DESCR1$4">Web Technology &nbsp;</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSUBJECT$4"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$4">CS BCS-502</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divCAREER$4"><span class="PSEDITBOX_DISPONLY" id="CAREER$4">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divINSTITUTION$4"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$4">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$4"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$4">100.00</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row6" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row6');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row6');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row6');">
+<td align="left" height="14" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSELECT$5"><span id="SELECT$span$5" class="PSHYPERLINK" title="View Roster"><a name="SELECT$5" id="SELECT$5" ptlinktgt="pt_peoplecode" tabindex="70" href="javascript:submitAction_win0(document.win0,'SELECT$5');" class="PSHYPERLINK">1517</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divDESCR1$5"><span class="PSEDITBOX_DISPONLY" id="DESCR1$5">Web Technology &nbsp;</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSUBJECT$5"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$5">CS BCS-502</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divCAREER$5"><span class="PSEDITBOX_DISPONLY" id="CAREER$5">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divINSTITUTION$5"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$5">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$5"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$5">72.73</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row7" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row7');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row7');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row7');">
+<td align="left" height="14" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(249, 254, 203);">
+<div id="win0divSELECT$6"><span id="SELECT$span$6" class="PSHYPERLINK" title="View Roster"><a name="SELECT$6" id="SELECT$6" ptlinktgt="pt_peoplecode" tabindex="76" href="javascript:submitAction_win0(document.win0,'SELECT$6');" class="PSHYPERLINK">1534</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(249, 254, 203);">
+<div id="win0divDESCR1$6"><span class="PSEDITBOX_DISPONLY" id="DESCR1$6">Design &amp; Analysis Of Algorithm</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(249, 254, 203);">
+<div id="win0divSUBJECT$6"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$6">CS BCS-503</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(249, 254, 203);">
+<div id="win0divCAREER$6"><span class="PSEDITBOX_DISPONLY" id="CAREER$6">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(249, 254, 203);">
+<div id="win0divINSTITUTION$6"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$6">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDODDROW" style="background-color: rgb(249, 254, 203);">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$6"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$6">80.00</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row8" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row8');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row8');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row8');">
+<td align="left" height="14" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSELECT$7"><span id="SELECT$span$7" class="PSHYPERLINK" title="View Roster"><a name="SELECT$7" id="SELECT$7" ptlinktgt="pt_peoplecode" tabindex="82" href="javascript:submitAction_win0(document.win0,'SELECT$7');" class="PSHYPERLINK">1536</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divDESCR1$7"><span class="PSEDITBOX_DISPONLY" id="DESCR1$7">Design &amp; Analysis Of Algorithm</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSUBJECT$7"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$7">CS BCS-503</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divCAREER$7"><span class="PSEDITBOX_DISPONLY" id="CAREER$7">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divINSTITUTION$7"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$7">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$7"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$7">100.00</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row9" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row9');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row9');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row9');">
+<td align="left" height="14" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSELECT$8"><span id="SELECT$span$8" class="PSHYPERLINK" title="View Roster"><a name="SELECT$8" id="SELECT$8" ptlinktgt="pt_peoplecode" tabindex="88" href="javascript:submitAction_win0(document.win0,'SELECT$8');" class="PSHYPERLINK">1561</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divDESCR1$8"><span class="PSEDITBOX_DISPONLY" id="DESCR1$8">DATABASE MANAGEMENT SYSTEM LAB</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSUBJECT$8"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$8">CS BCS-551</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divCAREER$8"><span class="PSEDITBOX_DISPONLY" id="CAREER$8">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divINSTITUTION$8"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$8">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$8"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$8">0.00</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row10" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row10');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row10');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row10');">
+<td align="left" height="14" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSELECT$9"><span id="SELECT$span$9" class="PSHYPERLINK" title="View Roster"><a name="SELECT$9" id="SELECT$9" ptlinktgt="pt_peoplecode" tabindex="94" href="javascript:submitAction_win0(document.win0,'SELECT$9');" class="PSHYPERLINK">1591</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divDESCR1$9"><span class="PSEDITBOX_DISPONLY" id="DESCR1$9">Web Technology Lab</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSUBJECT$9"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$9">CS BCS-552</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divCAREER$9"><span class="PSEDITBOX_DISPONLY" id="CAREER$9">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divINSTITUTION$9"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$9">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$9"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$9">0.00</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row11" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row11');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row11');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row11');">
+<td align="left" height="14" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSELECT$10"><span id="SELECT$span$10" class="PSHYPERLINK" title="View Roster"><a name="SELECT$10" id="SELECT$10" ptlinktgt="pt_peoplecode" tabindex="100" href="javascript:submitAction_win0(document.win0,'SELECT$10');" class="PSHYPERLINK">1576</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divDESCR1$10"><span class="PSEDITBOX_DISPONLY" id="DESCR1$10">Design&amp;Analysis Algorithms Lab</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSUBJECT$10"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$10">CS BCS-553</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divCAREER$10"><span class="PSEDITBOX_DISPONLY" id="CAREER$10">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDODDROW">
+<div id="win0divINSTITUTION$10"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$10">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDODDROW">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$10"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$10">100.00</span>
+</div></td>
+</tr>
+<tr id="trSTDNT_ENRL$0_row12" valign="center" onclick="HighLightTR('rgb(212,219,217)','','trSTDNT_ENRL$0_row12');" onmouseover="hoverLightTR('rgb(249,254,203)','',0,'trSTDNT_ENRL$0_row12');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trSTDNT_ENRL$0_row12');">
+<td align="left" height="14" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSELECT$11"><span id="SELECT$span$11" class="PSHYPERLINK" title="View Roster"><a name="SELECT$11" id="SELECT$11" ptlinktgt="pt_peoplecode" tabindex="106" href="javascript:submitAction_win0(document.win0,'SELECT$11');" class="PSHYPERLINK">1554</a></span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divDESCR1$11"><span class="PSEDITBOX_DISPONLY" id="DESCR1$11">Essence of Indian Tr Knowledge</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSUBJECT$11"><span class="PSEDITBOX_DISPONLY" id="SUBJECT$11">HU BNC-502</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divCAREER$11"><span class="PSEDITBOX_DISPONLY" id="CAREER$11">Undergraduate</span>
+</div></td>
+<td align="left" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divINSTITUTION$11"><span class="PSEDITBOX_DISPONLY" id="INSTITUTION$11">Shri Ramswaroop Memorial GPC</span>
+</div></td>
+<td align="right" class="PSLEVEL1GRIDEVENROW">
+<div id="win0divSRM_CLAS_PER_DR_PERCENTAGE$11"><span class="PSEDITBOX_DISPONLY" id="SRM_CLAS_PER_DR_PERCENTAGE$11">66.67</span>
+</div></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+<tr>
+<td colspan="2"></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+<tr>
+<td height="0" colspan="14"></td>
+</tr>
+</tbody></table>
+</div></td></tr>
+<tr><td class="PSHEADERTOOLBARFRAME">
+<div id="win0divPSTOOLBAR"><table width="100%"><tbody><tr>
+<td><table><tbody><tr><td>
+<a class="PSPUSHBUTTONTB" id="Left"><span style="background-Color: transparent;border:0;"><input type="button" id="#ICList" name="#ICList" class="PSPUSHBUTTONTBRETURN" style="background-image: url(/cs/ps/cache/PT_TOOLBAR_RETURN_1.gif);" value="Return to Search" onclick="if (saveWarning('',null,'_self', 'javascript:submitAction_win0(document.win0, \'#ICList\')')) javascript:submitAction_win0(document.win0, '#ICList');" tabindex="5000" psaccesskey="\" alt="Return to Search (Alt+2)" title="Return to Search (Alt+2)"> </span></a></td>
+<td>
+<a class="PSPUSHBUTTONDISABLED" id="Left"><span style="background-Color: transparent;border:0;"><input type="button" id="#ICPrevInList" name="#ICPrevInList" disabled="" class="PSPUSHBUTTONTBPREVINLIST" style="background-image: url(/cs/ps/cache/PT_TOOLBAR_PREVINLIST_D_1.gif);" value="Previous in List" onclick="javascript:submitAction_win0(document.win0, '#ICPrevInList');" tabindex="5001" alt="Previous in list (inactive button) (Alt+4)" title="Previous in list (inactive button) (Alt+4)"> </span></a></td>
+<td>
+<a class="PSPUSHBUTTONTB" id="Left"><span style="background-Color: transparent;border:0;"><input type="button" id="#ICNextInList" name="#ICNextInList" class="PSPUSHBUTTONTBNEXTINLIST" style="background-image: url(/cs/ps/cache/PT_TOOLBAR_NEXTINLIST_1.gif);" value="Next in List" onclick="if (saveWarning('',null,'_self', 'javascript:submitAction_win0(document.win0, \'#ICNextInList\')')) javascript:submitAction_win0(document.win0, '#ICNextInList');" tabindex="5002" alt="Next in list (Alt+3)" title="Next in list (Alt+3)"> </span></a></td>
+<td>
+<a class="PSPUSHBUTTONTB" id="Left"><span style="background-Color: transparent;border:0;"><input type="button" id="#ICSendNotify" name="#ICSendNotify" class="PSPUSHBUTTONTBSENDNOTIFY" style="background-image: url(/cs/ps/cache/PT_TOOLBAR_NOTIFY_1.gif);" value="Notify" onclick="javascript:submitAction_win0(document.win0, '#ICSendNotify');" tabindex="5003" alt="Notify" title="Notify"> </span></a></td>
+</tr></tbody></table></td>
+<td align="right"><table><tbody><tr><td>
+<a class="PSPUSHBUTTONDISABLED" id="Left"><span style="background-Color: transparent;border:0;"><input type="button" id="#ICUpdate" name="#ICUpdate" disabled="" class="PSPUSHBUTTONTBUPDATEMODE" style="background-image: url(/cs/ps/cache/PT_TOOLBAR_UPDATEMODE_D_1.gif);" value="Update/Display" onclick="javascript:submitAction_win0(document.win0, '#ICUpdate');" tabindex="5004" alt="Update mode (inactive button)" title="Update mode (inactive button)"> </span></a></td>
+<td>
+<a class="PSPUSHBUTTONTB" id="Left"><span style="background-Color: transparent;border:0;"><input type="button" id="#ICUpdateAll" name="#ICUpdateAll" class="PSPUSHBUTTONTBUPDATEALLMODE" style="background-image: url(/cs/ps/cache/PT_TOOLBAR_UPDATEALLMODE_1.gif);" value="Include History" onclick="if (saveWarning('',null,'_self', 'javascript:submitAction_win0(document.win0, \'#ICUpdateAll\')')) javascript:submitAction_win0(document.win0, '#ICUpdateAll');" tabindex="5005" alt="Include History mode" title="Include History mode"> </span></a></td>
+</tr></tbody></table></td>
+</tr></tbody></table>
+</div></td></tr>
+</tbody></table>
+<div id="pt_dragtxt" class="PSLEVEL1GRIDCOLUMNHDR"></div><div onmouseup="ptGridResizeObj_win0.TDselUp();" onmousemove="ptGridResizeObj_win0.TDselMove();" id="pt_dragResize" onmouseout="ptGridResizeObj_win0.dragTD=false;" onmbouseover="ptGridResizeObj_win0.dragTD=true;"></div></div><div id="DetachDiv" height="0" width="0" frameborder="0"></div>
+</form>
+<a name="ICLastAnchor_win0"></a>
+<div id="popupDragFrame" class="popupDragFrame">&nbsp;</div>
+<!-- Mouse-over popup Begin -->
+<table id="win0MOpopupContainer" width="20" border="0" cellpadding="0" cellspacing="0" style="display:none; position:absolute; top:0; left:0;" onmouseover="MOpopupObj_win0.StartPopup('win0MOpopupContainer', '');" onmouseout="MOpopupObj_win0.StopPopup();"><tbody><tr>
+<td id="win0MOpopupInner" height="25" width="20" align="left" valign="top" class="MOBGImage">
+<div id="win0MOdivpopupFrame" tabindex="-1" onclick="MOpopupObj_win0.SetFocusFlag(false);" style="overflow:auto; width:20px; height: 60px; padding:8px; box-shadow:0 0 5px #000000; background-color:white; border: 1px solid #666666;">test</div></td>
+</tr>
+</tbody></table>
+<!-- Mouse-over popup End  -->
+
+<!-- Embedded Help popup Begin -->
+<div id="HelppopupDiv_win0" style="display:none; position:absolute; top:0; left:0">t</div>
+<div id="HelpDragFrame_win0" class="popupDragFrame">&nbsp;</div><table id="HelppopupContainer_win0" width="20" border="0" cellpadding="0" cellspacing="0" style="opacity:1; display:none; position:absolute; top:0; left:0">
+<tbody><tr>
+<td id="HelppopupInner_win0" class="HelppopupInner" align="left" valign="top" style="position:absolute;z-Index:302;">
+<div id="HelppopupTitleBar_win0" class="PTPOPUP_HEADER HelppopupTitleBar" style="width:341px"><div id="HelppopupTitleBarLeftImage"></div><div id="HelppopupTitleBarMiddle_win0" style="width:333px" class="HelppopupTitleBarMiddle" dir="ltr">
+<table>
+<tbody><tr><td id="HelppopupTitle_win0" style="width:290px; cursor: move;"><span class="PTPOPUP_TITLE">Help</span></td>
+<td style="width:45px"><img id="#HELPPOPUPCLOSE" style="cursor:pointer" title="Close" alt="Close" align="right" onclick="HelppopupObj_win0.StopPopup(&quot;win0&quot;);" src="/cs/ps/cache/PT_PORTAL_IC_CLOSE_1.gif"></td>
+</tr></tbody></table>
+</div><div id="HelppopupTitleBarRightImage"></div></div><div id="HelpdivpopupFrame_win0" class="MOBGImage HelpdivpopupFrame" tabindex="-1" onclick="HelppopupObj_win0.SetFocusFlag(false);" style="border: 1px #bcbaba solid; padding:12px; overflow:auto;">test</div><div id="HelppopupShadow" class="popupShadow" style="position:absolute;z-index:-1;"><div id="HelppopupShadowTopRightCorner" class="popupShadowTopRightCorner" style="height:10px;">&nbsp;</div><div id="HelppopupShadowTop" class="popupShadowTop">&nbsp;</div><div id="HelppopupShadowBottom" class="popupShadowBottom" style="height:10px"><div id="HelppopupShadowBottomLeftCorner" class="popupShadowBottomLeftCorner" style="height:10px;width:10px">&nbsp;</div><div id="HelppopupShadowBottomMiddle" class="popupShadowBottomMiddle" style="height:10px;">&nbsp;</div><div id="HelppopupShadowBottomRightCorner" class="popupShadowBottomRightCorner" style="height:10px;width:10px">&nbsp;</div></div></div></td>
+</tr>
+</tbody></table>
+<!-- Embedded Help popup End  -->
+<div id="ptus_universalSrch" style="display:none;"><span>Default Local Node:</span><input type="text" readonly="readonly" name="ptus_defaultlocalnode" id="ptus_defaultlocalnode" value="SRMCS90"><br><span>DbName:</span><input type="text" readonly="readonly" name="ptus_dbname" id="ptus_dbname" value="CSGPC"><br><span>Portal:</span><input type="text" readonly="readonly" name="ptus_portal" id="ptus_portal" value="EMPLOYEE"><br><span>Node:</span><input type="text" readonly="readonly" name="ptus_node" id="ptus_node" value="HRMS"><br><span>WorkCenter Id:</span><input type="text" readonly="readonly" name="ptus_workcenterid" id="ptus_workcenterid" value=""><br><span>Url:</span><input type="text" readonly="readonly" name="ptus_componenturl" id="ptus_componenturl" value="https://campus.srmcem.ac.in/psp/ps/EMPLOYEE/HRMS/c/MANAGE_ACADEMIC_RECORDS.STDNT_ATTEND_TERM.GBL"><br></div><script language="JavaScript">
+var bCleanHtml = false;
+var bDefer = false;
+document.hiddenFldArr_win0 =new Array('ICType','ICElementNum','ICStateNum','ICAction','ICXPos','ICYPos','ResponsetoDiffFrame','TargetFrameName','FacetPath','ICFocus','ICSaveWarningFilter','ICChanged','ICResubmit','ICSID','ICActionPrompt','ICTypeAheadID','ICFind','ICAddCount','ICAPPCLSDATA');
+document.chgFldArr_win0 = new Array();
+var bCDATA = false;
+var bLoadCompleted = true;
+</script><div id="pt_console"></div></body></html>
